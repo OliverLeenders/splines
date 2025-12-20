@@ -51,8 +51,8 @@ svg.on("dblclick", function (event) {
                 lines[index - 1]?.deleteLine();
                 lines[index]?.deleteLine();
 
-                // Remove incident lines from the lines array by comparing point objects
-                lines.splice(Math.max(0, index - 1), Math.min(2, lines.length - Math.max(0, index - 1)));
+                const deleteCount = (index === 0) ? 1 : 2;
+                lines.splice(Math.max(0, index - 1), Math.min(deleteCount, lines.length - Math.max(0, index - 1)));
 
 
                 // draw new line between adjacent points if applicable
